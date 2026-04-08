@@ -3,6 +3,16 @@
 > YOLO26s detection · EasyOCR reading · Streamlit deployment  
 > Trained on 27,900 images · 17 FPS pipeline · mAP@0.5 = 0.9195 on test set
 
+
+https://github.com/user-attachments/assets/e0297e4b-33c2-41f2-b4b6-7dba14b0a70d
+
+https://github.com/user-attachments/assets/7ead91b1-baf5-41b9-8896-56f59c0e0f23
+
+https://github.com/user-attachments/assets/342ab842-b945-46a1-8e22-b811fdffe08f
+
+https://github.com/user-attachments/assets/9a3d14cf-30b8-45ef-bbd2-d37c09ac0701
+
+
 ---
 
 ## Results at a glance
