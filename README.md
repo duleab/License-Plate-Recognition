@@ -186,45 +186,6 @@ Processed video outputs demonstrate the system's real-time performance across va
 ![Pipeline Architecture](Output/lpr_pipeline_architecture.svg)
 
 ```
-Input (image / video frame)
-        │
-        ▼
-┌──────────────────┐
-│  YOLO26s detect  │  conf=0.50, imgsz=640
-└──────────────────┘
-        │  bounding boxes
-        ▼
-┌──────────────────┐
-│  Crop + padding  │  5% border added around each box
-└──────────────────┘
-        │  plate crop (BGR)
-        ▼
-┌──────────────────────────────────────┐
-│  Preprocess                          │
-│  → grayscale                         │
-│  → CLAHE  clipLimit=2.0  tile=8×8    │
-│  → bilateral filter  d=9  σ=75       │
-│  → aspect-preserving resize h=80px   │
-└──────────────────────────────────────┘
-        │  enhanced grayscale crop
-        ▼
-┌──────────────────────────────────────┐
-│  EasyOCR                             │
-│  → English model                     │
-│  → filter chars with conf < 0.10     │
-│  → uppercase + strip non-[A-Z0-9- ]  │
-└──────────────────────────────────────┘
-        │  cleaned text + confidences
-        ▼
-┌──────────────────────────────────────┐  video only
-│  OCR deduplication                   │ ──────────►
-│  Levenshtein similarity ≥ 0.72       │
-│  best of cluster = longest text      │
-│  × highest (det_conf × ocr_conf)     │
-└──────────────────────────────────────┘
-        │
-        ▼
-Output: plate text, det_conf, ocr_conf, crop image
 ```
 
 ---
